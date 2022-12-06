@@ -8,10 +8,14 @@
     --fontBody: 'Helvetica';
 } */
 
-/* SignIn Component */
-
 h1 {
     color: var(--colorRed);
+}
+
+/* SignIn Component */
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* SignUp Component */

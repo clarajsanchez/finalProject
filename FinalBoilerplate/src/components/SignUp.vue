@@ -49,7 +49,7 @@
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="sign-up-link"
+            class="sign-in-link"
           />
         </p>
       </div>
