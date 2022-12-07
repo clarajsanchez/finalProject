@@ -1,52 +1,54 @@
 <!-- COMPONENTE BOILERPLATE -->
 
 <template>
-  <div class="container" id="signIn">
+  <div class="container">
+    <div class="content-box">
 
-    <div class="header">
-      <div class="header-description">
-        <h3 class="header-title">Log In to ToDo App</h3>
-        <p class="header-subtitle">Start organizing your tasks!</p>
+      <div class="header">
+        <div class="header-description">
+          <h3 class="header-title">Log In to ToDo App</h3>
+          <p class="header-subtitle">Start organizing your tasks!</p>
+        </div>
       </div>
+
+      <form @submit.prevent="signIn" class="form-sign-in">
+        <div class="form">
+          <div class="form-input">
+            <label class="input-field-label"></label>
+            <input
+              type="email"
+              class="input-field"
+              placeholder="Your email"
+              id="email"
+              v-model="email"
+              required
+            />
+          </div>
+          <div class="form-input">
+            <label class="input-field-label"></label>
+            <input
+              type="password"
+              class="input-field"
+              placeholder="Your password"
+              id="password"
+              v-model="password"
+              required
+            />
+          </div>
+          <button class="button" type="submit">Sign In</button>
+          <p>
+            Don't have an account?
+            <PersonalRouter
+              :route="route"
+              :buttonText="buttonText"
+              class="sign-up-link"
+            />
+          </p>
+        </div>
+      </form>
+
+      <div v-show="errorMsg">{{errorMsg}}</div>
     </div>
-
-    <form @submit.prevent="signIn" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <label class="input-field-label">E-mail</label>
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Password</label>
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-        </div>
-        <button class="button" type="submit">Sign In</button>
-        <p>
-          Don't have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-up-link"
-          />
-        </p>
-      </div>
-    </form>
-
-    <div v-show="errorMsg">{{errorMsg}}</div>
   </div>
 </template>
 

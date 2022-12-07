@@ -3,6 +3,7 @@
     <h3>{{task.title}}</h3>
     <p>{{task.description}}</p>
     <button id="edit" @click="(openEdit = !openEdit)">Edit {{task.title}}</button>
+    <button id="done" @click="(done = !done), taskDone()">Done {{done}}</button>
     <div action="#" v-show="!openEdit">
         <div class="input-field">
             <input type="text" v-model="name">
@@ -23,6 +24,7 @@ import { supabase } from '../supabase';
 
 const name = ref(props.task.title);
 const description = ref(props.task.description);
+const is_complete = ref(props.task.is_complete);
 const taskStore = useTaskStore();
 
 const emit = defineEmits(["getTasks"]);
@@ -42,12 +44,20 @@ const editTask = async () => {
     emit("getTasks");
 }
 
+const taskDone = async () => {
+    console.log("taskDone");
+    // is_complete = done;
+    await taskStore.taskDone(is_complete, props.task.id);
+    emit("getTasks");
+}
+
 const openEdit = ref(true);
+const done = ref(false);
+// let 
 
 </script>
 
 <style>
-
 </style>
 
 <!--
