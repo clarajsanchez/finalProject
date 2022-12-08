@@ -159,6 +159,7 @@ nav p{
 }
 
 .items{
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 500px 500px;
     justify-items: center;
@@ -296,7 +297,7 @@ img {
 @media (max-width: 420px){
 
     .items{
-        grid-template-columns: 400px;
+        grid-template-columns: 75%;
     }
 
     .new-task-block{
@@ -306,8 +307,13 @@ img {
     .new-task-input{
         margin-left: 7%;
     }
-    
+
     .log-out-welcome{
         display: none;
+    }
+
+    img{
+        width: 70%;
+        margin-top: 0;
     }
 }
