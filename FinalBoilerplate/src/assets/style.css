@@ -292,4 +292,22 @@ img {
     font-size: 20px;
 }
 
-/* Account View */
+/* MOVIL  */
+@media (max-width: 420px){
+
+    .items{
+        grid-template-columns: 400px;
+    }
+
+    .new-task-block{
+        flex-direction: column;
+    }
+
+    .new-task-input{
+        margin-left: 7%;
+    }
+    
+    .log-out-welcome{
+        display: none;
+    }
+}
