@@ -6,13 +6,13 @@
     </router-link>
 
     <ul>
-        <li>
+        <!-- <li>
           <router-link to="/">Task Manager</router-link>
         </li>
 
         <li>
           <router-link to="/account">Your Account</router-link>
-        </li>
+        </li> -->
     </ul>
 
     <div>
@@ -71,7 +71,6 @@ const signOut = async () => {
 }
 
 nav {
-  background-color: lightgray;
   display: flex;
   width: 100%;
   justify-content: space-around;

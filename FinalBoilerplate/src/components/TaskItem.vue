@@ -1,9 +1,24 @@
 <template>
-<div class="container">
-    <h3>{{task.title}}</h3>
-    <p>{{task.description}}</p>
-    <button id="edit" @click="(openEdit = !openEdit)">Edit {{task.title}}</button>
-    <button id="done" @click="(done = !done), taskDone()">Done {{done}}</button>
+<div class="container-item">
+    <div v-if="!done">
+        <div class="item-title">
+            <h3>{{task.title}}</h3>
+            <button id="done" @click="taskDone">Done</button>
+        </div>        
+        <p>{{task.description}}</p>
+    </div>
+    <div v-else class="tachado">
+        <div class="item-title">
+            <h3>{{task.title}}</h3>
+            <button id="done" @click="taskDone">Undone</button>
+        </div>   
+        <p>{{task.description}}</p>
+    </div>
+    <div class="modify-task">
+        <button id="edit" @click="(openEdit = !openEdit)">Edit</button>
+        <button @click="deleteTask">Delete</button>
+    </div>
+    
     <div action="#" v-show="!openEdit">
         <div class="input-field">
             <input type="text" v-model="name">
@@ -11,9 +26,9 @@
         <div class="input-field">
             <input type="text" v-model="description">
         </div>
-        <button @click="editTask">Save</button>
+        <button @click="editTask" class="save-button">Save</button>
     </div>
-    <button @click="deleteTask">Delete {{task.title}}</button>
+    
 </div>
 </template>
 
@@ -26,6 +41,9 @@ const name = ref(props.task.title);
 const description = ref(props.task.description);
 const is_complete = ref(props.task.is_complete);
 const taskStore = useTaskStore();
+
+const openEdit = ref(true);
+const done = ref(props.task.is_complete);
 
 const emit = defineEmits(["getTasks"]);
 
@@ -46,13 +64,13 @@ const editTask = async () => {
 
 const taskDone = async () => {
     console.log("taskDone");
-    // is_complete = done;
-    await taskStore.taskDone(is_complete, props.task.id);
+    done.value = !done.value;
+    // localStorage.setItem("done", !done.value);
+    await taskStore.taskDone(props.task.is_complete, props.task.id);
     emit("getTasks");
 }
 
-const openEdit = ref(true);
-const done = ref(false);
+
 // let 
 
 </script>

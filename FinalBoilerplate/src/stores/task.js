@@ -49,7 +49,7 @@ export const useTaskStore = defineStore("tasks", {
         .from("tasks")
         .update([
           {
-            is_complete: is_complete,
+            is_complete: !is_complete,
           },
         ])
         .match({
