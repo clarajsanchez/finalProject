@@ -62,7 +62,7 @@ body{
 }
 
 .form-input ::placeholder{
-    color: rgba(255, 255, 255, 0.434%);
+    color: rgba(255, 255, 255, 0.434);
 }
 
 #sign-in .button {

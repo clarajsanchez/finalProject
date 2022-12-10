@@ -18,7 +18,7 @@
             <input
               type="email"
               class="input-field sign"
-              placeholder="Your email"
+              placeholder="Email"
               id="email"
               v-model="email"
               required
@@ -29,7 +29,7 @@
             <input
               type="password"
               class="input-field sign"
-              placeholder="Your password"
+              placeholder="Password"
               id="password"
               v-model="password"
               required
